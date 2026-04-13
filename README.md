@@ -1,6 +1,4 @@
-Here’s a **professional README.md** for your **ORGOLIFE project** — ready to copy & paste 👇
 
----
 
 # 🩺 ORGOLIFE – Organ Donation Platform
 
