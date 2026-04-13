@@ -1,128 +1,180 @@
-# OrgoLife — Organ Donation Platform
-
-A full-stack organ donation platform built with **FastAPI** (Python) + **MongoDB** (Motor) + a single-file HTML/CSS/JS frontend.
+Here’s a **professional README.md** for your **ORGOLIFE project** — ready to copy & paste 👇
 
 ---
 
-## Quick Start (Local)
+# 🩺 ORGOLIFE – Organ Donation Platform
 
-### Prerequisites
-- **Python 3.9+**
-- **MongoDB** running locally on port `27017`  
-  _or_ a [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) free cluster URI
+## 🌟 Overview
 
-### Run in one command
-```bash
-cd orgolife
-bash start.sh
-```
-
-Then open **http://localhost:8000** in your browser.
-
-- Frontend SPA → `http://localhost:8000/`
-- Swagger API Docs → `http://localhost:8000/api/docs`
-- Health check → `http://localhost:8000/health`
+**ORGOLIFE** is a full-stack web application designed to connect organ donors with recipients efficiently. The platform allows users to register as donors, search for available donors based on filters, and promote awareness about organ donation.
 
 ---
 
-## Manual Setup
+## 🚀 Features
 
-```bash
-cd orgolife
+* 👤 **User Registration**
 
-# 1. Create virtual environment
-python3 -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
+  * Donors can register with personal and medical details
 
-# 2. Install dependencies
-pip install -r requirements.txt
+* 🔍 **Search Donors**
 
-# 3. Configure environment
-cp .env .env.local         # Edit MONGODB_URL and JWT_SECRET_KEY
+  * Filter donors by:
 
-# 4. Start the server
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-```
+    * State
+    * City
+    * Blood Group
 
----
+* 🗄️ **Database Integration**
 
-## MongoDB Atlas (Cloud)
+  * Secure storage using Supabase (PostgreSQL)
 
-Edit `.env` and set:
-```
-MONGODB_URL=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/?retryWrites=true&w=majority
-DATABASE_NAME=organ_donation_db
-```
+* 🌐 **Responsive UI**
+
+  * Clean and user-friendly interface
+
+* 🔐 **Authentication**
+
+  * Secure user login and data handling
 
 ---
 
-## Environment Variables (`.env`)
+## 🛠️ Tech Stack
 
-| Variable | Default | Description |
-|---|---|---|
-| `MONGODB_URL` | `mongodb://localhost:27017` | MongoDB connection URI |
-| `DATABASE_NAME` | `organ_donation_db` | Database name |
-| `JWT_SECRET_KEY` | _(dev placeholder)_ | **Change in production!** |
-| `ACCESS_TOKEN_EXPIRE_MINUTES` | `60` | JWT access token lifetime |
-| `REFRESH_TOKEN_EXPIRE_DAYS` | `7` | JWT refresh token lifetime |
-| `UPLOAD_DIR` | `uploads` | Directory for uploaded files |
-| `MAX_FILE_SIZE_MB` | `5` | Max upload size per file |
+**Frontend:**
 
----
+* HTML, CSS, JavaScript / React
 
-## API Routes
+**Backend:**
 
-| Method | Path | Auth | Description |
-|---|---|---|---|
-| POST | `/api/v1/auth/register/admin` | — | Register hospital admin |
-| POST | `/api/v1/auth/login/donor` | — | Donor login |
-| POST | `/api/v1/auth/login/receiver` | — | Receiver login |
-| POST | `/api/v1/auth/login/admin` | — | Admin login |
-| POST | `/api/v1/auth/refresh` | — | Refresh access token |
-| GET | `/api/v1/auth/me` | Bearer | Current user profile |
-| POST | `/api/v1/donors/register` | — | Register donor + upload docs |
-| POST | `/api/v1/donors/organs` | Donor | Register organ (step 2) |
-| GET | `/api/v1/donors/profile` | Donor | Get donor profile |
-| GET | `/api/v1/donors/documents` | Donor | Get document URLs |
-| POST | `/api/v1/receivers/register` | — | Register receiver + upload docs |
-| POST | `/api/v1/receivers/search` | Receiver | Search verified donors |
-| GET | `/api/v1/receivers/profile` | Receiver | Get receiver profile |
-| GET | `/api/v1/admin/hospital/profile` | Admin | Hospital profile |
-| GET | `/api/v1/admin/donors` | Admin | List all donors (paginated) |
-| GET | `/api/v1/admin/donors/{id}` | Admin | Full donor detail |
-| POST | `/api/v1/admin/donors/approve` | Admin | Approve donor |
-| POST | `/api/v1/admin/donors/reject` | Admin | Reject donor |
+* Node.js / FastAPI
+
+**Database:**
+
+* Supabase (PostgreSQL)
+
+**Deployment:**
+
+* Vercel (Frontend)
+* Render / Railway (Backend)
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
-orgolife/
-├── main.py                    # FastAPI app entry point
-├── requirements.txt           # Python dependencies
-├── .env                       # Environment config
-├── start.sh                   # One-shot startup script
-├── frontend/
-│   └── index.html             # Single-page frontend (no build step)
-├── uploads/                   # Uploaded documents (auto-created)
-└── app/
-    ├── api/routes/            # Route handlers
-    ├── core/                  # Config, security, dependencies
-    ├── db/                    # MongoDB connection + indexes
-    ├── middleware/            # Error handler, request logger
-    ├── models/                # MongoDB document factories
-    ├── schemas/               # Pydantic request/response schemas
-    ├── services/              # Business logic
-    └── utils/                 # JWT, password, masking, pagination
+ORGOLIFE/
+│── frontend/
+│── backend/
+│── database/
+│── README.md
 ```
 
 ---
 
-## Roles
+## ⚙️ Installation & Setup
 
-| Role | Portal | Capabilities |
-|---|---|---|
-| **Donor** | `/` → Donor tab | Register, upload docs, register organs, view profile |
-| **Receiver** | `/` → Receiver tab | Register, search verified donors by organ/blood/location |
-| **Hospital Admin** | `/` → Hospital tab | Register hospital, view all donors, approve/reject |
+### 1️⃣ Clone the repository
+
+```
+git clone https://github.com/Sonam-1986/ORGOLIFE.git
+cd ORGOLIFE
+```
+
+---
+
+### 2️⃣ Install dependencies
+
+#### For frontend:
+
+```
+cd frontend
+npm install
+```
+
+#### For backend:
+
+```
+cd backend
+npm install
+```
+
+---
+
+### 3️⃣ Setup Environment Variables
+
+Create a `.env` file and add:
+
+```
+SUPABASE_URL=your_supabase_url
+SUPABASE_ANON_KEY=your_supabase_key
+DATABASE_URL=your_database_url
+```
+
+---
+
+### 4️⃣ Run the project
+
+#### Start backend:
+
+```
+npm start
+```
+
+#### Start frontend:
+
+```
+npm run dev
+```
+
+---
+
+## 🌍 Deployment
+
+* Frontend deployed on **Vercel**
+* Backend deployed on **Render/Railway**
+
+---
+
+## ⚠️ Common Issues
+
+* ❌ API not working → Check backend URL (no localhost in production)
+* ❌ Database error → Verify Supabase credentials
+* ❌ CORS error → Enable CORS in backend
+
+---
+
+## 📌 Future Enhancements
+
+* 📱 Mobile app integration
+* 🧠 AI-based donor matching
+* 📊 Dashboard analytics
+* 📩 Email/SMS notifications
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+Feel free to fork the repo and submit a pull request.
+
+---
+
+## 📄 License
+
+This project is for educational purposes.
+
+---
+
+## 🙌 Acknowledgements
+
+* Supabase
+* Vercel
+* Open Source Community
+
+---
+
+## ❤️ Support
+
+If you like this project, give it a ⭐ on GitHub!
+
+
