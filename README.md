@@ -2,11 +2,17 @@
 
 # 🩺 ORGOLIFE – Organ Donation Platform
 
+## ❤️ Contributor 
+# shikha7479
+# sanchitanimbalkar45-cmyk
+# Swatirana01
+
 ## 🌟 Overview
 
 **ORGOLIFE** is a full-stack web application designed to connect organ donors with recipients efficiently. The platform allows users to register as donors, search for available donors based on filters, and promote awareness about organ donation.
 
 ---
+
 
 ## 🚀 Features
 
@@ -174,5 +180,3 @@ This project is for educational purposes.
 ## ❤️ Support
 
 If you like this project, give it a ⭐ on GitHub!
-
-
